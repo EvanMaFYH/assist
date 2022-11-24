@@ -1,5 +1,6 @@
 import { cookie , addEvent, removeEvent } from './utils'
 import pubSub from './pubSub'
+import Audio from './Audio';
 
 export default class Base {
     constructor() {
@@ -12,14 +13,14 @@ export default class Base {
       this.tmplStyle = []
       this.tmplHtml = []
       this.registeOpen()
-    
+
     }
 
     mergeConfig(opts) {
-      this.config = { ...this.config, ...opts }; 
+      this.config = { ...this.config, ...opts };
       this.creatContainer()
     }
-  
+
     use(plugin, ...args) {
       plugin.init(this, ...args);
     }
@@ -36,7 +37,7 @@ export default class Base {
       const Container = document.createElement("div");
       Container.id = namespace
       document.body.appendChild(Container)
-     
+
     }
 
     registeOpen() {
@@ -98,13 +99,13 @@ export default class Base {
         activeBtn.style.display = 'block'
         cookie.set('show',true, namespace)
         this.hideModules()
+        Audio.showAudio()
       } else {
         document.body.style.cssText = ''
         //activeBtn.style.display = 'none'
         cookie.remove(`${namespace}`)
         location.reload()
       }
-     
     }
 
     hideModules() {
@@ -125,11 +126,11 @@ export default class Base {
         styleNode.id = `${namespace}-${id}`
         styleNode.className = id
         if(styleNode.styleSheet) {
-            styleNode.styleSheet.cssText = css;  
+            styleNode.styleSheet.cssText = css;
         } else {
             styleNode.innerHTML = css
         }
-        document.getElementsByTagName('head')[0].appendChild(styleNode);  
+        document.getElementsByTagName('head')[0].appendChild(styleNode);
       }
     }
 
@@ -160,11 +161,11 @@ export default class Base {
       styleNode.id = `${namespace}-style`
       let __css = this.tmplStyle.join('\n')
       if(styleNode.styleSheet) {
-          styleNode.styleSheet.cssText = __css;  
+          styleNode.styleSheet.cssText = __css;
       } else {
           styleNode.innerHTML = __css
       }
-      document.getElementsByTagName('head')[0].appendChild(styleNode); 
+      document.getElementsByTagName('head')[0].appendChild(styleNode);
     }
 
     formatLongText() {
@@ -179,6 +180,5 @@ export default class Base {
         el.innerHTML = __elItem.join('。')
       });
     }
-    
+
   }
-  

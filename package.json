@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "es6-proxy-polyfill": "^2.1.1",
-    "js-cookie": "^2.2.1"
+    "js-cookie": "^2.2.1",
+    "lodash.debounce": "^4.0.8"
   }
 }
