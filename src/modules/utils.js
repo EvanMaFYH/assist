@@ -11,7 +11,7 @@ const cookie = {
         cursor: false, // 是否替换鼠标样式
         pointer: false,// 是否开启十字线
         bigtext: false,// 是否开启大字幕
-        overead: true // 是否开启指读
+        overead: false // 是否开启指读
       }
 
      if(Cookies.get(namespace)) {

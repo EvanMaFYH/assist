@@ -1996,7 +1996,7 @@
         // 是否开启十字线
         bigtext: false,
         // 是否开启大字幕
-        overead: true // 是否开启指读
+        overead: false // 是否开启指读
 
       };
 
