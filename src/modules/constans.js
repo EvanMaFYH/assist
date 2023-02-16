@@ -1,5 +1,6 @@
 const audioTabText = {
     pointeread: '已开启指读模式',
+    pointereadClose: '已关闭指读模式',
     bigtextOpen: '大字幕已开启',
     bigtextClose: '大字幕已关闭',
     pointerFollowOpen: '十字线已开启',

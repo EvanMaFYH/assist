@@ -2567,6 +2567,7 @@
 
   var audioTabText = {
     pointeread: '已开启指读模式',
+    pointereadClose: '已关闭指读模式',
     bigtextOpen: '大字幕已开启',
     bigtextClose: '大字幕已关闭',
     pointerFollowOpen: '十字线已开启',
@@ -2727,7 +2728,12 @@
         return;
       }
 
-      Audio.playAudio(__text);
+      var namespace = Audio.namespace;
+      var isOveread = cookie.get('overead', namespace);
+
+      if (isOveread) {
+        Audio.playAudio(__text);
+      }
     },
     playAudio: debounce(function (text) {
       if (window.speechSynthesis) {

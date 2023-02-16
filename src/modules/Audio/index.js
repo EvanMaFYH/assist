@@ -129,7 +129,11 @@ const Audio = {
         if(__text == '' || trim(__text) == '文本' || __isAssist ) {
             return
         }
-        Audio.playAudio(__text)
+        const { namespace } = Audio
+        const isOveread = cookie.get('overead',namespace)
+        if(isOveread) {
+            Audio.playAudio(__text)
+        }
     },
     playAudio: debounce(function(text) {
         if(window.speechSynthesis){
